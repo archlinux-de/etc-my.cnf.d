@@ -24,12 +24,12 @@ max_connections = 256
 # myisam
 key_buffer_size = 16M
 join_buffer_size = 1M
-max_allowed_packet = 10M
+#max_allowed_packet = 10M
 query_cache_size = 128M
 query_cache_limit = 2M
 tmp_table_size = 256M
 max_heap_table_size = 256M
-ft_min_word_len = 3
+ft_min_word_len = 2
 thread_cache_size = 4
 
 # innodb
@@ -41,6 +41,7 @@ innodb_log_file_size = 256M
 innodb_log_buffer_size = 16M
 innodb_flush_log_at_trx_commit = 2
 innodb_flush_method = O_DIRECT
+innodb_ft_min_token_size=2
 
 # log-slow-queries
 #slow-query-log
