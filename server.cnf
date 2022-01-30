@@ -13,6 +13,7 @@
 port = 3306
 socket = /run/mysqld/mysqld.sock
 bind-address = 127.0.0.1
+skip-name-resolve = 1
 datadir = /var/lib/mysql/data/
 #log = /var/log/mysqld.log
 #log-error  = /var/log/mysqld-error.log
@@ -22,22 +23,22 @@ skip-external-locking
 max_connections = 256
 
 # myisam
-key_buffer_size = 16M
-join_buffer_size = 1M
+key_buffer_size = 4M
+join_buffer_size = 4M
 #max_allowed_packet = 10M
-query_cache_size = 128M
-query_cache_limit = 2M
+query_cache_size = 0
+query_cache_type = 0
 tmp_table_size = 256M
 max_heap_table_size = 256M
 ft_min_word_len = 2
 thread_cache_size = 4
+table_definition_cache = 600
 
 # innodb
 innodb_data_file_path = ibdata1:100M:autoextend
 innodb_file_per_table
-innodb_buffer_pool_size = 12G
-innodb_buffer_pool_instances = 12
-innodb_log_file_size = 256M
+innodb_buffer_pool_size = 16G
+innodb_log_file_size = 4G
 innodb_log_buffer_size = 16M
 innodb_flush_log_at_trx_commit = 2
 innodb_flush_method = O_DIRECT
@@ -76,8 +77,8 @@ innodb_ft_min_token_size=2
 # you can put MariaDB-only options here
 [mariadb]
 
-# This group is only read by MariaDB-10.4 servers.
+# This group is only read by MariaDB-10.6 servers.
 # If you use the same .cnf file for MariaDB of different versions,
 # use this group for options that older servers don't understand
-[mariadb-10.4]
+[mariadb-10.6]
 
